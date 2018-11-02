@@ -207,11 +207,11 @@ class Section
     }
 
     /**
-     * @return bool
+     * @return SectionConfiguration
      */
-    public function getRenderCodeBlock(): bool
+    public function getSectionConfiguration(): SectionConfiguration
     {
-        return $this->sectionConfiguration->renderCodeBlock();
+        return $this->sectionConfiguration;
     }
 
     /**

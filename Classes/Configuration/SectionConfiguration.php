@@ -47,7 +47,7 @@ class SectionConfiguration
     /**
      * @return bool
      */
-    public function renderCodeBlock(): bool
+    public function getRenderCodeBlock(): bool
     {
         $conf = $this->getConfiguration();
         if (isset($conf['renderCodeBlock'])) {

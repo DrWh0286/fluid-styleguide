@@ -8,7 +8,7 @@
   </f:link.action>
   <hr>
   <f:format.raw>{section.html}</f:format.raw>
-  <f:if condition="{section.renderCodeBlock}">
+  <f:if condition="{section.sectionConfiguration.renderCodeBlock}">
     <pre class="line-numbers"><code class="language-markup">{section.html}</code></pre>
   </f:if>
 </f:for>
