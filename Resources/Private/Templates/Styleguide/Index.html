@@ -4,9 +4,12 @@
 <f:for each="{sections}" as="section">
   <hr>
   <f:link.action action="index" arguments="{section: section.identifier, sectionGroup: section.sectionGroup.identifier}">
-  <h1>{section.headline}</h1>
+    <h1>{section.headline}</h1>
   </f:link.action>
   <hr>
   <f:format.raw>{section.html}</f:format.raw>
   <pre class="line-numbers"><code class="language-markup">{section.html}</code></pre>
 </f:for>
+
+<link rel="stylesheet" href="/typo3conf/ext/fluid_styleguide/Resources/Public/Css/prism.css">
+<script src="/typo3conf/ext/fluid_styleguide/Resources/Public/Js/prism.js"></script>
