@@ -7,6 +7,9 @@
     <h1>{section.title}</h1>
   </f:link.action>
   <strong class="dev-state-{section.sectionConfiguration.developmentState}">Development state: {section.sectionConfiguration.developmentState}</strong>
+  <f:if condition="{section.sectionConfiguration.componentDoc}">
+    <p>{section.sectionConfiguration.componentDoc}</p>
+  </f:if>
   <hr>
   <f:format.raw>{section.html}</f:format.raw>
   <f:if condition="{section.sectionConfiguration.renderCodeBlock}">

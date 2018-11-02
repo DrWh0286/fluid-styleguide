@@ -79,6 +79,18 @@ class SectionConfiguration
     }
 
     /**
+     * @return string
+     */
+    public function getComponentDoc(): string
+    {
+        $conf = $this->getConfiguration();
+        if (isset($conf['componentDoc'])) {
+            return (string)$conf['componentDoc'];
+        }
+        return '';
+    }
+
+    /**
      * @return array
      */
     private function getConfiguration(): array
