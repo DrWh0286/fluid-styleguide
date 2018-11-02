@@ -215,7 +215,6 @@ __SimpleTextElement.json__
 
 Each json object in the `data` array causes a rendering in the styleguide.
 
-
 ### Print out in the frontend
 
 To print out the styleguide in the frontend, just add the Styleguide TYPO3 plugin to a normal page.
