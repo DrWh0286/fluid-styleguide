@@ -2,36 +2,7 @@
   <li><f:link.page>All</f:link.page></li>
   <f:for each="{rootSectionGroups}" as="sectionGroup">
     <li>
-      <f:link.action action="index" controller="Styleguide" arguments="{sectionGroup:sectionGroup.identifier}">
-        {sectionGroup.identifier}
-      </f:link.action>
-      <ul>
-        <f:if condition="{sectionGroup.sectionGroups}">
-          <f:for each="{sectionGroup.sectionGroups}" as="sectionGroup">
-            <li>
-              <f:link.action action="index" controller="Styleguide" arguments="{sectionGroup:sectionGroup.identifier}">
-                {sectionGroup.identifier}
-              </f:link.action>
-              <f:if condition="{sectionGroup.sections}">
-                <ul>
-                  <f:for each="{sectionGroup.sections}" as="section">
-                    <li>
-                      <f:link.action action="index" controller="Styleguide" arguments="{section:section.identifier}">{section.identifier}</f:link.action>
-                    </li>
-                  </f:for>
-                </ul>
-              </f:if>
-            </li>
-          </f:for>
-        </f:if>
-        <f:if condition="{sectionGroup.sections}">
-          <f:for each="{sectionGroup.sections}" as="section">
-            <li>
-              <f:link.action action="index" controller="Styleguide" arguments="{section:section.identifier}">{section.identifier}</f:link.action>
-            </li>
-          </f:for>
-        </f:if>
-      </ul>
+      <f:render partial="Styleguide/SectionGroupMenuPart" arguments="{sectionGroup:sectionGroup}" />
     </li>
   </f:for>
 </ul>

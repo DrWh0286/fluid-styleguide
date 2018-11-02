@@ -1,0 +1,19 @@
+<f:link.action action="index" controller="Styleguide" arguments="{sectionGroup:sectionGroup.identifier}">
+  {sectionGroup.identifier}
+</f:link.action>
+<ul>
+  <f:if condition="{sectionGroup.sectionGroups}">
+    <f:for each="{sectionGroup.sectionGroups}" as="sectionGroup">
+      <li>
+        <f:render partial="Styleguide/SectionGroupMenuPart" arguments="{sectionGroup:sectionGroup}" />
+      </li>
+    </f:for>
+  </f:if>
+  <f:if condition="{sectionGroup.sections}">
+    <f:for each="{sectionGroup.sections}" as="section">
+      <li>
+        <f:link.action action="index" controller="Styleguide" arguments="{section:section.identifier}">{section.identifier}</f:link.action>
+      </li>
+    </f:for>
+  </f:if>
+</ul>
