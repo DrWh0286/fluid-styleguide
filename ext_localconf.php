@@ -23,3 +23,16 @@
 
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['extbase']['commandControllers'][] =
     \Pluswerk\Styleguide\Command\PatternlabCommand::class;
+
+$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['fluid_components']['namespaces']['Pluswerk\\FluidStyleguide\\Components'] =
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath(
+        'fluid_styleguide',
+        'Resources/Private/Components'
+    );
+
+
+// Make fc a global namespace
+if (!isset($GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['sg'])) {
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['sg'] = [];
+}
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['sg'][] = 'Pluswerk\\FluidStyleguide\\Components';

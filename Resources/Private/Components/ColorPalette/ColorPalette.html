@@ -1,0 +1,10 @@
+<fc:component>
+  <fc:param name="hexCodes" type="array" />
+  <fc:renderer>
+    <div class="color-palette">
+      <f:for each="{hexCodes}" as="hexCode">
+        <sg:colorBox hexCode="{hexCode}"/>
+      </f:for>
+    </div>
+  </fc:renderer>
+</fc:component>
