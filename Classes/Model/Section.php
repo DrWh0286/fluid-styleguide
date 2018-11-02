@@ -9,13 +9,12 @@
 namespace Pluswerk\FluidStyleguide\Model;
 
 use Gajus\Dindent\Indenter;
-use Mihaeu\HtmlFormatter;
+use Pluswerk\FluidStyleguide\Configuration\SectionConfiguration;
 use Pluswerk\FluidStyleguide\Configuration\StyleguideConfiguration;
 use Pluswerk\FluidStyleguide\Registry\SectionGroupRegistry;
 use Symfony\Component\Finder\SplFileInfo;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 
 class Section
@@ -56,11 +55,6 @@ class Section
     private $standaloneView;
 
     /**
-     * @var array
-     */
-    private $dummyData;
-
-    /**
      * @var Indenter
      */
     private $indenter;
@@ -69,6 +63,11 @@ class Section
      * @var SectionGroup
      */
     private $sectionGroup;
+
+    /**
+     * @var SectionConfiguration
+     */
+    private $sectionConfiguration;
 
     /**
      * Section constructor.
@@ -86,10 +85,10 @@ class Section
         $this->styleguideConfiguration = $objectManager->get(StyleguideConfiguration::class);
         $this->standaloneView = $objectManager->get(StandaloneView::class);
         $this->indenter = $objectManager->get(Indenter::class);
+
+        // Retrieve configuration from json file.
         $jsonFilePathname = $file->getPath() . '/' . $file->getBasename('.html') . '.json';
-        $jsonFile = file_get_contents($jsonFilePathname);
-        $jsonFileContent = \json_decode($jsonFile, true);
-        $this->dummyData = $jsonFileContent['data'];
+        $this->sectionConfiguration = $objectManager->get(SectionConfiguration::class, $jsonFilePathname);
 
         /** @var SectionGroupRegistry $sectionGroupRegistry */
         $sectionGroupRegistry = $objectManager->get(SectionGroupRegistry::class);
@@ -195,7 +194,7 @@ class Section
         if ($this->html === null)
         {
             $this->html = '';
-            foreach ($this->dummyData as $dummyDatum) {
+            foreach ($this->sectionConfiguration->getSectionDummyData() as $dummyDatum) {
                 $this->standaloneView->setTemplatePathAndFilename($this->file->getPathname());
                 $this->standaloneView->assignMultiple($dummyDatum);
                 $this->html .= trim($this->formatHtml($this->standaloneView->render()));
@@ -205,6 +204,14 @@ class Section
             }
         }
         return $this->html;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getRenderCodeBlock(): bool
+    {
+        return $this->sectionConfiguration->renderCodeBlock();
     }
 
     /**

@@ -8,7 +8,9 @@
   </f:link.action>
   <hr>
   <f:format.raw>{section.html}</f:format.raw>
-  <pre class="line-numbers"><code class="language-markup">{section.html}</code></pre>
+  <f:if condition="{section.renderCodeBlock}">
+    <pre class="line-numbers"><code class="language-markup">{section.html}</code></pre>
+  </f:if>
 </f:for>
 
 <link rel="stylesheet" href="/typo3conf/ext/fluid_styleguide/Resources/Public/Css/prism.css">
