@@ -57,8 +57,8 @@ class SectionGroup
         $this->identifier = implode('__', $path);
         array_pop($path);
         $this->path = $path;
-        $this->sections = new ObjectStorage();
-        $this->sectionGroups = new ObjectStorage();
+        $this->sections = [];
+        $this->sectionGroups = [];
         /** @var ObjectManager $objectManager */
         $objectManager = $objectManager ?? GeneralUtility::makeInstance(ObjectManager::class);
         /** @var SectionGroupRegistry $sectionGroupRegistry */
@@ -86,9 +86,9 @@ class SectionGroup
     }
 
     /**
-     * @return ObjectStorage
+     * @return array
      */
-    public function getSections(): ObjectStorage
+    public function getSections(): array
     {
         return $this->sections;
     }
@@ -102,9 +102,9 @@ class SectionGroup
     }
 
     /**
-     * @return ObjectStorage
+     * @return array
      */
-    public function getSectionGroups(): ObjectStorage
+    public function getSectionGroups(): array
     {
         return $this->sectionGroups;
     }
