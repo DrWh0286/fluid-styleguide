@@ -55,7 +55,7 @@ class SectionGroup
     public function __construct(array $path, ObjectManager $objectManager = null)
     {
         $this->identifier = implode('__', $path);
-        array_pop($path);
+        $this->title = array_pop($path);
         $this->path = $path;
         $this->sections = [];
         $this->sectionGroups = [];

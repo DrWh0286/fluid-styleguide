@@ -1,5 +1,5 @@
 <f:link.action action="index" controller="Styleguide" arguments="{sectionGroup:sectionGroup.identifier}">
-  {sectionGroup.identifier}
+  {sectionGroup.title}
 </f:link.action>
 <ul>
   <f:if condition="{sectionGroup.sectionGroups}">
@@ -12,7 +12,7 @@
   <f:if condition="{sectionGroup.sections}">
     <f:for each="{sectionGroup.sections}" as="section">
       <li>
-        <f:link.action action="index" controller="Styleguide" arguments="{section:section.identifier}">{section.identifier}</f:link.action>
+        <f:link.action action="index" controller="Styleguide" arguments="{section:section.identifier}">{section.title}</f:link.action>
       </li>
     </f:for>
   </f:if>

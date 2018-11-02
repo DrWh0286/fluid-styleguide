@@ -23,7 +23,7 @@ class Section
     /**
      * @var string
      */
-    private $headline;
+    private $title;
 
     /**
      * @var string
@@ -79,8 +79,8 @@ class Section
      */
     public function __construct(\SplFileInfo $file, ObjectManager $objectManager = null)
     {
-        $this->file = $file;
-        $this->headline = $file->getBasename('.html');
+        $this->file  = $file;
+        $this->title = $file->getBasename('.html');
         /** @var ObjectManager $objectManager */
         $objectManager = $objectManager ?? GeneralUtility::makeInstance(ObjectManager::class);
         $this->styleguideConfiguration = $objectManager->get(StyleguideConfiguration::class);
@@ -100,9 +100,9 @@ class Section
     /**
      * @return string
      */
-    public function getHeadline(): string
+    public function getTitle(): string
     {
-        return $this->headline;
+        return $this->title;
     }
 
     /**

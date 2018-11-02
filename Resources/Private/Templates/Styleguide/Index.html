@@ -4,7 +4,7 @@
 <f:for each="{sections}" as="section">
   <hr>
   <f:link.action action="index" arguments="{section: section.identifier, sectionGroup: section.sectionGroup.identifier}">
-    <h1>{section.headline}</h1>
+    <h1>{section.title}</h1>
   </f:link.action>
   <hr>
   <f:format.raw>{section.html}</f:format.raw>
