@@ -17,7 +17,7 @@
     ],
     // non-cacheable actions
     [
-        'Styleguide' => 'index',
+        'Styleguide' => '',
     ]
 );
 
