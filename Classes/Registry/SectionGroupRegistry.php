@@ -111,7 +111,7 @@ class SectionGroupRegistry implements SingletonInterface
     public function getSectionsByGroupIdentifier(string $identifier, array $sections = []): array
     {
         $sections = array_merge($sections, $this->sectionGroups[$identifier]->getSections()) ;
-        $sectionGroups = $this->sectionGroups[$identifier]->getSectionGroups()->toArray();
+        $sectionGroups = $this->sectionGroups[$identifier]->getSectionGroups();
         if (!empty($sectionGroups)) {
             /** @var SectionGroup $sectionGroup */
             foreach ($sectionGroups as $sectionGroup) {
