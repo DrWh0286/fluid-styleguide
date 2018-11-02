@@ -6,6 +6,7 @@
   <f:link.action action="index" arguments="{section: section.identifier, sectionGroup: section.sectionGroup.identifier}">
     <h1>{section.title}</h1>
   </f:link.action>
+  <strong class="dev-state-{section.sectionConfiguration.developmentState}">Development state: {section.sectionConfiguration.developmentState}</strong>
   <hr>
   <f:format.raw>{section.html}</f:format.raw>
   <f:if condition="{section.sectionConfiguration.renderCodeBlock}">

@@ -11,6 +11,11 @@ namespace Pluswerk\FluidStyleguide\Configuration;
 
 class SectionConfiguration
 {
+    private const DEVELOPMENT_STATE_IN_PROGRESS = 'in-progress';
+    private const DEVELOPMENT_STATE_UNDER_REVIEW = 'under-review';
+    private const DEVELOPMENT_STATE_READY_TO_USE = 'ready-to-use';
+    private const DEVELOPMENT_STATE_UNDEFINED = 'undefined';
+
     /**
      * @var array
      */
@@ -54,6 +59,23 @@ class SectionConfiguration
             return (bool)$conf['renderCodeBlock'];
         }
         return true;
+    }
+
+    public function getDevelopmentState(): string
+    {
+        $conf = $this->getConfiguration();
+        if (isset($conf['developmentState'])) {
+            if ($conf['developmentState'] === self::DEVELOPMENT_STATE_IN_PROGRESS){
+                return self::DEVELOPMENT_STATE_IN_PROGRESS;
+            }
+            if ($conf['developmentState'] === self::DEVELOPMENT_STATE_UNDER_REVIEW){
+                return self::DEVELOPMENT_STATE_UNDER_REVIEW;
+            }
+            if ($conf['developmentState'] === self::DEVELOPMENT_STATE_READY_TO_USE){
+                return self::DEVELOPMENT_STATE_READY_TO_USE;
+            }
+        }
+        return self::DEVELOPMENT_STATE_UNDEFINED;
     }
 
     /**

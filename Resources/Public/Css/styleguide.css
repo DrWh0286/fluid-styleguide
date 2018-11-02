@@ -24,3 +24,16 @@
   width: 100%;
   padding: 30px 15px;
 }
+
+.dev-state-in-progress {
+  background-color: red;
+}
+.dev-state-under-review {
+  background-color: yellow;
+}
+.dev-state-ready-to-use {
+  background-color: green;
+}
+.dev-state-undefined {
+  background-color: deepskyblue;
+}
