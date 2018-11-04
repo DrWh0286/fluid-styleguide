@@ -3,8 +3,8 @@ image: registry.contair.org/nginx-php:php7.2
 pipelines:
   default:
     - step:
-      caches:
-        - composer
-      script:
-        - composer selfupdate
-        - composer install
+        caches:
+          - composer
+        script:
+          - composer selfupdate
+          - composer install
