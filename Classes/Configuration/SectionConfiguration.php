@@ -10,10 +10,10 @@ namespace Pluswerk\FluidStyleguide\Configuration;
 
 class SectionConfiguration
 {
-    private const DEVELOPMENT_STATE_IN_PROGRESS = 'in-progress';
-    private const DEVELOPMENT_STATE_UNDER_REVIEW = 'under-review';
-    private const DEVELOPMENT_STATE_READY_TO_USE = 'ready-to-use';
-    private const DEVELOPMENT_STATE_UNDEFINED = 'undefined';
+    public const DEVELOPMENT_STATE_IN_PROGRESS = 'in-progress';
+    public const DEVELOPMENT_STATE_UNDER_REVIEW = 'under-review';
+    public const DEVELOPMENT_STATE_READY_TO_USE = 'ready-to-use';
+    public const DEVELOPMENT_STATE_UNDEFINED = 'undefined';
 
     /**
      * @var array

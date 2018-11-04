@@ -9,3 +9,4 @@ pipelines:
           - composer selfupdate
           - composer install
           - ./.Build/bin/grumphp run
+          - ./.Build/bin/phpunit
