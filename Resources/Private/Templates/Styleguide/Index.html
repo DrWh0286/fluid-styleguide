@@ -31,6 +31,8 @@
   </f:if>
 </f:for>
 
-<link rel="stylesheet" href="/typo3conf/ext/fluid_styleguide/Resources/Public/Css/prism.css">
-<link rel="stylesheet" href="/typo3conf/ext/fluid_styleguide/Resources/Public/Css/styleguide.css">
-<script src="/typo3conf/ext/fluid_styleguide/Resources/Public/Js/prism.js"></script>
+<f:section name="FooterAssets">
+  <link rel="stylesheet" href="{f:uri.resource(path: 'Css/prism.css')}">
+  <link rel="stylesheet" href="{f:uri.resource(path: 'Css/styleguide.css')}">
+  <script src="{f:uri.resource(path: 'Js/prism.js')}"></script>
+</f:section>
