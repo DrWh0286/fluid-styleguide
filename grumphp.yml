@@ -1,0 +1,80 @@
+parameters:
+    git_dir: .
+    bin_dir: .Build/bin
+    tasks:
+      git_commit_message:
+        allow_empty_message: false
+        enforce_capitalized_subject: true
+        enforce_no_subject_trailing_period: true
+        enforce_single_lined_subject: true
+        max_body_width: 72
+        max_subject_width: 60
+        matchers:
+          Must start with [.*] (e.g. [FEATURE], [!!!], etc.): /^(\[.*\])/
+          Must contain [FEATURE], [TASK] or [BUGFIX]: /(\[FEATURE\]|\[TASK\]|\[BUGFIX\])/
+          Subject must start with a capital letter after [.*]: /^(\[.*\])? [A-Z]+/
+        case_insensitive: true
+        multiline: true
+        additional_modifiers: ''
+      phpcs:
+        standard: PSR2
+        tab_width: ~
+        severity: ~
+        error_severity: ~
+        warning_severity: ~
+        whitelist_patterns: []
+        encoding: ~
+        ignore_patterns: ['LocalConfiguration.php', 'PackageStates.php']
+        sniffs: []
+        triggered_by: [php]
+      phplint:
+        exclude: []
+        jobs: ~
+        triggered_by: ['php']
+      phpversion:
+        project: '5.6'
+      securitychecker:
+        lockfile: ./composer.lock
+        format: ~
+        end_point: ~
+        timeout: ~
+        run_always: false
+      composer:
+        file: ./composer.json
+        no_check_all: true
+        no_check_lock: false
+        no_check_publish: false
+        no_local_repository: false
+        with_dependencies: false
+        strict: true
+      xmllint:
+        ignore_patterns: ['web/typo3conf/l10n']
+        load_from_net: false
+        x_include: false
+        dtd_validation: false
+        scheme_validation: false
+        triggered_by: ['xml','xlf']
+      git_blacklist:
+        keywords:
+            - "var_dump("
+            - "DebuggerUtility::"
+        triggered_by: ['php']
+        regexp_type: G
+      jsonlint:
+        ignore_patterns: []
+        detect_key_conflicts: false
+      yamllint:
+        ignore_patterns: []
+        object_support: false
+        exception_on_invalid_type: false
+        parse_constant: false
+        parse_custom_tags: false
+      xlifflint:
+        ignore_patterns: ['web/typo3conf/l10n']
+        load_from_net: false
+        x_include: false
+        dtd_validation: false
+        scheme_validation: false
+        triggered_by: [xlf]
+    extensions:
+      - PLUS\GrumPHPXliffTask\ExtensionLoader
