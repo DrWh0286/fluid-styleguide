@@ -8,7 +8,6 @@
 
 namespace Pluswerk\FluidStyleguide\Registry;
 
-
 use Pluswerk\FluidStyleguide\Model\Section;
 use Pluswerk\FluidStyleguide\Model\SectionGroup;
 use TYPO3\CMS\Core\SingletonInterface;

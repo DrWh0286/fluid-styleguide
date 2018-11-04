@@ -8,7 +8,6 @@
 
 namespace Pluswerk\FluidStyleguide\Utility;
 
-
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class StyleguideManagementUtility
@@ -41,7 +40,8 @@ class StyleguideManagementUtility
                 $baseStyleguidePath
             )
         ];
-        $fluidComponentsExtConfNamespaces = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['fluid_components']['namespaces'] ?? [];
+        $fluidComponentsExtConfNamespaces = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['fluid_components']['namespaces']
+                                            ?? [];
         $fluidNamespaces = $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces'] ?? [];
 
         foreach (self::$styleguideNamespaces as $short => $styleguideNamespace) {

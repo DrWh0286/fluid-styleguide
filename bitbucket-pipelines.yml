@@ -8,3 +8,4 @@ pipelines:
         script:
           - composer selfupdate
           - composer install
+          - ./.Build/bin/grumphp run

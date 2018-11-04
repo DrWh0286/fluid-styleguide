@@ -203,8 +203,7 @@ class Section
      */
     public function getHtml(): string
     {
-        if ($this->html === null)
-        {
+        if ($this->html === null) {
             $this->html = '';
             foreach ($this->sectionConfiguration->getSectionDummyData() as $dummyDatum) {
                 $this->standaloneView->setTemplatePathAndFilename($this->file->getPathname());

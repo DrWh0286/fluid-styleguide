@@ -8,7 +8,6 @@
 
 namespace Pluswerk\FluidStyleguide\Parser;
 
-
 use Pluswerk\FluidStyleguide\Configuration\StyleguideConfiguration;
 use Pluswerk\FluidStyleguide\Model\Section;
 use Pluswerk\FluidStyleguide\Registry\SectionGroupRegistry;

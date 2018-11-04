@@ -8,7 +8,6 @@
 
 namespace Pluswerk\FluidStyleguide\Configuration;
 
-
 class SectionConfiguration
 {
     private const DEVELOPMENT_STATE_IN_PROGRESS = 'in-progress';
@@ -65,13 +64,13 @@ class SectionConfiguration
     {
         $conf = $this->getConfiguration();
         if (isset($conf['developmentState'])) {
-            if ($conf['developmentState'] === self::DEVELOPMENT_STATE_IN_PROGRESS){
+            if ($conf['developmentState'] === self::DEVELOPMENT_STATE_IN_PROGRESS) {
                 return self::DEVELOPMENT_STATE_IN_PROGRESS;
             }
-            if ($conf['developmentState'] === self::DEVELOPMENT_STATE_UNDER_REVIEW){
+            if ($conf['developmentState'] === self::DEVELOPMENT_STATE_UNDER_REVIEW) {
                 return self::DEVELOPMENT_STATE_UNDER_REVIEW;
             }
-            if ($conf['developmentState'] === self::DEVELOPMENT_STATE_READY_TO_USE){
+            if ($conf['developmentState'] === self::DEVELOPMENT_STATE_READY_TO_USE) {
                 return self::DEVELOPMENT_STATE_READY_TO_USE;
             }
         }
