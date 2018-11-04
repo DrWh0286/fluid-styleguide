@@ -11,7 +11,9 @@ namespace Pluswerk\FluidStyleguide\Model;
 use Gajus\Dindent\Indenter;
 use Pluswerk\FluidStyleguide\Configuration\SectionConfiguration;
 use Pluswerk\FluidStyleguide\Configuration\StyleguideConfiguration;
+use Pluswerk\FluidStyleguide\Parser\SectionParser;
 use Pluswerk\FluidStyleguide\Registry\SectionGroupRegistry;
+use Pluswerk\FluidStyleguide\Registry\SectionUsageRegistry;
 use Symfony\Component\Finder\SplFileInfo;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
@@ -70,6 +72,11 @@ class Section
     private $sectionConfiguration;
 
     /**
+     * @var SectionUsageRegistry
+     */
+    private $sectionUsageRegistry;
+
+    /**
      * Section constructor.
      *
      * @param string $headline
@@ -85,6 +92,11 @@ class Section
         $this->styleguideConfiguration = $objectManager->get(StyleguideConfiguration::class);
         $this->standaloneView = $objectManager->get(StandaloneView::class);
         $this->indenter = $objectManager->get(Indenter::class);
+        $this->sectionUsageRegistry = $objectManager->get(SectionUsageRegistry::class);
+        /** @var SectionParser $sectionParser */
+        $sectionParser = $objectManager->get(SectionParser::class);
+        $usedComponents = $sectionParser->getUsedComponentViewHelperStrings($file);
+        $this->sectionUsageRegistry->addSectionsUsage($this, $usedComponents);
 
         // Retrieve configuration from json file.
         $jsonFilePathname = $file->getPath() . '/' . $file->getBasename('.html') . '.json';
@@ -212,6 +224,14 @@ class Section
     public function getSectionConfiguration(): SectionConfiguration
     {
         return $this->sectionConfiguration;
+    }
+
+    /**
+     * @return array
+     */
+    public function getUsage(): array
+    {
+        return $this->sectionUsageRegistry->getUsagesOfSection($this->getIdentifier());
     }
 
     /**

@@ -6,7 +6,21 @@
   <f:link.action action="index" arguments="{section: section.identifier, sectionGroup: section.sectionGroup.identifier}">
     <h1>{section.title}</h1>
   </f:link.action>
-  <strong class="dev-state-{section.sectionConfiguration.developmentState}">Development state: {section.sectionConfiguration.developmentState}</strong>
+  <strong class="dev-state-{section.sectionConfiguration.developmentState}">
+    Development state: {section.sectionConfiguration.developmentState}
+  </strong>
+  <f:if condition="{section.usage}">
+  <h3>Usage:</h3>
+    <ul>
+      <f:for each="{section.usage}" as="usedSection">
+        <li>
+          <f:link.action action="index" arguments="{section: usedSection.identifier, sectionGroup: usedSection.sectionGroup.identifier}">
+            {usedSection.title}
+          </f:link.action>
+        </li>
+      </f:for>
+    </ul>
+  </f:if>
   <f:if condition="{section.sectionConfiguration.componentDoc}">
     <p>{section.sectionConfiguration.componentDoc}</p>
   </f:if>

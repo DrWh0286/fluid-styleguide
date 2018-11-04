@@ -61,4 +61,20 @@ class SectionParser
             }
         }
     }
+
+    /**
+     * @param \SplFileInfo $file
+     *
+     * @return array
+     */
+    public function getUsedComponentViewHelperStrings(\SplFileInfo $file): array
+    {
+        if (file_exists($file)) {
+            $content = file_get_contents($file->getPathname());
+            if (preg_match_all('/<((at|mo|or|te|pa):[a-zA-Z\.]*) ?/', $content, $hits)) {
+                return $hits[1];
+            }
+        }
+        return [];
+    }
 }

@@ -59,4 +59,14 @@ class StyleguideManagementUtility
         $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['fluid_components']['namespaces'] = $fluidComponentsExtConfNamespaces;
         $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces'] = $fluidNamespaces;
     }
+
+    /**
+     * @param string $viewhelperShort
+     *
+     * @return string
+     */
+    public static function getNamespacePartFromViewHelperShort(string $viewhelperShort): string
+    {
+        return self::$styleguideNamespaces[$viewhelperShort] ?? '';
+    }
 }
