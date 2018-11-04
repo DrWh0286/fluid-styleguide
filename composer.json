@@ -18,7 +18,8 @@
   },
   "require-dev": {
     "typo3/testing-framework": "^4.11.0",
-    "pluswerk/grumphp-req-package": "^0.0.3"
+    "pluswerk/grumphp-req-package": "^0.0.3",
+    "symfony/var-dumper": "^4.1"
   },
   "autoload": {
     "psr-4": {
