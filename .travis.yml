@@ -8,7 +8,7 @@ services:
 
 install:
   - composer install
-  - ./.Build/bin/typo3cms install:setup --database-user-name travis --database-user-password --database-host-name 127.0.0.1 --database-name typo3 --admin-user-name admin --admin-password password --site-setup-type no --force --skip-integrity-check --non-interactive
+  #- ./.Build/bin/typo3cms install:setup --database-user-name travis --database-user-password --database-host-name 127.0.0.1 --database-name typo3 --admin-user-name admin --admin-password password --site-setup-type no --force --skip-integrity-check --non-interactive
 
 script:
   - ./.Build/bin/grumphp run
