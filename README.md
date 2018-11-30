@@ -20,10 +20,10 @@ $ composer require pluswerk/fluid-styleguide
 ### Register template extension
 
 Add the following lines to you template extension ext_localconf.php file:
-```php
+````php
 <?php
 \Pluswerk\FluidStyleguide\Utility\StyleguideManagementUtility::registerForStyleguide('my_extension', 'VENDOR');
-```
+````
 This will register the Needed Folders for Styleguide as a fluid_component folder (you do not have to do the
 registration, which is shown at the fluid_components documentation!).
 
@@ -152,16 +152,20 @@ __SimpleTextElement.html__
   </fc:renderer>
 </fc:component>
 ````
+
 The SimpleTextElement.html component can be used everywhere (also in the styleguide again) e.g. with the following code:
-```html
+
+````html
 <mo:contenElements.simpleTextElement headline="My headline" headlineLevel="3" text="my text" />
-```
+````
+
 This will render the component SimpleTextElement with the given parameters.
 
 To render these components in the json file could look like this:
 
 __Headline.json__
-```json
+
+````json
 {
   "data": [
     {
@@ -190,11 +194,11 @@ __Headline.json__
     }
   ]
 }
-```
+````
 
 __Text.json__
 
-```json
+````json
 {
   "data": [
     {
@@ -202,8 +206,10 @@ __Text.json__
     }
   ]
 }
-```
+````
+
 __SimpleTextElement.json__
+
 ````json
 {
   "data": [
@@ -228,7 +234,7 @@ __Example:__
 
 Setup section:
 
-```
+````
 page.10 >
 page.10 =< styles.content.get
-```
+````
