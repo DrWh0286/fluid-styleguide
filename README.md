@@ -12,31 +12,31 @@ This extension is the base for the rendering process. For more information about
 
 2. Install composer package:
 
-
+````bash
 	$ composer require pluswerk/fluid-styleguide
-
+````
 ## Basic Usage
 
 ### Register template extension
 
 Add the following lines to you template extension ext_localconf.php file:
-
+````php
 	<?php
 	\Pluswerk\FluidStyleguide\Utility\StyleguideManagementUtility::registerForStyleguide('my_extension', 'VENDOR');
-
+````
 This will register the Needed Folders for Styleguide as a fluid_component folder (you do not have to do the
 registration, which is shown at the fluid_components documentation!).
 
 The base file path to where the styleguide files should found in your extension is `Resources/Private/Styleguide`.
 If you want to change this, you have to add this path as third argument to the register method:
-
+````php
 	<?php
 	\Pluswerk\FluidStyleguide\Utility\StyleguideManagementUtility::registerForStyleguide(
 		'my_extension',
 		'VENDOR',
 		'my/path/to/styleguide'
 	);
-
+````
 ### Create Folders for the components
 
 To create Atoms, Molecules, Organisms (, Templates or Pages) you have to add the corresponding folder to the styleguide
@@ -58,13 +58,13 @@ All these folders are registered to fluid_components, so the can be used like th
 documentation.
 
 To avoid the namespace thing on top of each html file, some viewhelper shortcuts are registered globally for these folders:
-
+````html
 	<at:myAtom>
 	<mo:myMolecule>
 	<or:myOrganism>
 	<te:myTemplate>
 	<pa:myPage>
-
+````
 This means, if you create fluid components you can use them everywhere in your TYPO3 installation.
 
 ### Dummy data for styleguide
@@ -100,7 +100,7 @@ Assume we have the following constellation:
 (The file has always to be located in a folder with the same name -> look into fluid_components documentation!)
 
 __Headline.html__
-
+````html
     <fc:component>
       <fc:param name="headline" type="string" />
       <fc:param name="level" type="integer" >2</fc:param>
@@ -128,9 +128,9 @@ __Headline.html__
         </f:switch>
       </fc:renderer>
     </fc:component>
-
+````
 __Text.html__
-
+````html
     <fc:component>
       <fc:param name="text" type="string" />
       <fc:renderer>
@@ -139,9 +139,9 @@ __Text.html__
         </f:if>
       </fc:renderer>
     </fc:component>
-
+````
 __SimpleTextElement.html__
-
+````html
     <fc:component>
       <fc:param name="headline" type="string" />
       <fc:param name="headlineLevel" type="integer" />
@@ -151,17 +151,17 @@ __SimpleTextElement.html__
         <at:baseElements.text text="{text}"/>
       </fc:renderer>
     </fc:component>
-
+````
 The SimpleTextElement.html component can be used everywhere (also in the styleguide again) e.g. with the following code:
-
+````html
     <mo:contenElements.simpleTextElement headline="My headline" headlineLevel="3" text="my text" />
-
+````
 This will render the component SimpleTextElement with the given parameters.
 
 To render these components in the json file could look like this:
 
 __Headline.html__
-
+`````html
 	{
 	  "data": [
 		{
@@ -190,9 +190,9 @@ __Headline.html__
 		}
 	  ]
 	}
-
+````
 __Text.json__
-
+````json
     {
       "data": [
         {
@@ -200,9 +200,9 @@ __Text.json__
         }
       ]
     }
-
+````
 __SimpleTextElement.json__
-
+````json
     {
       "data": [
         {
@@ -212,7 +212,7 @@ __SimpleTextElement.json__
         }
       ]
     }
-
+````
 Each json object in the `data` array causes a rendering in the styleguide.
 
 ### Print out in the frontend
